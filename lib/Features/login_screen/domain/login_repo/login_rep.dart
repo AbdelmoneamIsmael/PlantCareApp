@@ -1,3 +1,6 @@
+import 'package:dartz/dartz.dart';
+import 'package:plant_care/core/errors/failure.dart';
+
 abstract class LoginRepo{
-  Future<bool> makeLogin();
+  Future<Either<Failure,bool>> makeLogin();
 }
