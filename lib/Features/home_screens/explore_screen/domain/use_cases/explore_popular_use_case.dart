@@ -11,8 +11,8 @@ class ExplorePopularUseCase extends UseCase<List<ExploreEntity>,NoParam>{
   ExplorePopularUseCase(this.explorePopularRepo);
 
   @override
-  Future<Either<Failure, List<ExploreEntity>>> call([NoParam? param]) {
-    return explorePopularRepo.fetchPopularPosts();
+  Future<Either<Failure, List<ExploreEntity>>> call([NoParam? param]) async {
+    return await explorePopularRepo.fetchPopularPosts();
   }
 
 }

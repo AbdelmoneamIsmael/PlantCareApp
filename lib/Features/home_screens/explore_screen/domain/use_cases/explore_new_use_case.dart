@@ -11,8 +11,8 @@ class ExploreNewUseCase extends UseCase<List<ExploreEntity>,NoParam>{
   ExploreNewUseCase(this.exploreNewRepo);
 
   @override
-  Future<Either<Failure, List<ExploreEntity>>> call([NoParam? param]) {
-    return exploreNewRepo.fetchNewPosts();
+  Future<Either<Failure, List<ExploreEntity>>> call([NoParam? param]) async {
+    return await exploreNewRepo.fetchNewPosts();
   }
 
 }

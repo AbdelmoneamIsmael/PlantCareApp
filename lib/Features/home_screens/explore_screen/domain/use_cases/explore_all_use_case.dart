@@ -11,8 +11,8 @@ class ExploreAllYMLUseCase extends UseCase<List<ExploreEntity>,NoParam>{
   ExploreAllYMLUseCase(this.exploreAllRepo);
 
   @override
-  Future<Either<Failure, List<ExploreEntity>>> call([NoParam? param]) {
-    return exploreAllRepo.fetchYouMayLikeIt();
+  Future<Either<Failure, List<ExploreEntity>>> call([NoParam? param]) async {
+    return await exploreAllRepo.fetchYouMayLikeIt();
   }
 
 }
@@ -22,8 +22,8 @@ class ExploreAllStanderUseCase extends UseCase<List<ExploreEntity>,NoParam>{
   ExploreAllStanderUseCase(this.exploreAllRepo);
 
   @override
-  Future<Either<Failure, List<ExploreEntity>>> call([NoParam? param]) {
-    return exploreAllRepo.fetchStanderPosts();
+  Future<Either<Failure, List<ExploreEntity>>> call([NoParam? param]) async {
+    return await  exploreAllRepo.fetchStanderPosts();
   }
 
 }
