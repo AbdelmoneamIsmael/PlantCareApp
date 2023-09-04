@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "828875714139",
+    "project_id": "plant-care-app-750df",
+    "storage_bucket": "plant-care-app-750df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828875714139:android:d215cd6897c4e19154197e",
+        "android_client_info": {
+          "package_name": "com.abdelmoneam.plant_saver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "828875714139-5fdjp02dfsc843ejhidn36rnbsvb6rb3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWyKBvlHOe_fZYtuktu047FoyKQdW0FvM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "828875714139-5fdjp02dfsc843ejhidn36rnbsvb6rb3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
