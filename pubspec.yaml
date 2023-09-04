@@ -11,6 +11,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_custom_clippers: ^2.1.0
   dots_indicator: ^3.0.0
+  firebase_auth: ^4.9.0
   flutter:
     sdk: flutter
   flutter_calendar_carousel: ^2.4.2
