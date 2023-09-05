@@ -5,7 +5,7 @@ import 'package:plant_care/core/themes/light_mode.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
  await Firebase.initializeApp();
