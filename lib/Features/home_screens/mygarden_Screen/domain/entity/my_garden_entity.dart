@@ -1,4 +1,4 @@
-abstract class MyGardenEntity{
+ class MyGardenEntity{
   final String name;
   final  String image;
   final String place;

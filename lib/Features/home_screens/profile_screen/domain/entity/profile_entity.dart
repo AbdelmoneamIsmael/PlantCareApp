@@ -1,4 +1,4 @@
-abstract class ProfileEntity{
+ class ProfileEntity{
   final String name;
   final String profileImage;
   final String bio;
