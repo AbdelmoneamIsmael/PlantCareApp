@@ -1,3 +1,5 @@
+import 'package:plant_care/Features/home_screens/explore_screen/domain/entity/explore_entity.dart';
+
 import 'WateringGeneralBenchmark.dart';
 
 /// date : "date"
@@ -14,37 +16,37 @@ import 'WateringGeneralBenchmark.dart';
 /// id : 1
 /// is_liked : true
 
-class PlantDetails {
+class PlantDetails extends ExploreEntity {
   PlantDetails({
-      this.date, 
-      this.image, 
-      this.description, 
-      this.scientificName, 
-      this.type, 
-      this.cycle, 
-      this.pruningMonth, 
-      this.wateringGeneralBenchmark, 
-      this.watering, 
-      this.isSaved, 
-      this.otherName, 
-      this.id, 
-      this.isLiked,});
+      this.date,
+      this.image,
+      this.description,
+      this.scientificName,
+      this.type,
+      this.cycle,
+      this.pruningMonth,
+      this.wateringGeneralBenchmark,
+      this.watering,
+      this.isSaved,
+      this.otherName,
+      this.id,
+      this.isLiked,}) : super(exIsLiked: isLiked, exIsSaved: isSaved, plantId: id, exImage: image, plantDescription:description);
 
-  PlantDetails.fromJson(dynamic json) {
-    date = json['date'];
-    image = json['image'];
-    description = json['description'];
-    scientificName = json['scientific_name'];
-    type = json['type'];
-    cycle = json['cycle'];
-    pruningMonth = json['pruning_month'] != null ? json['pruning_month'].cast<String>() : [];
-    wateringGeneralBenchmark = json['watering_general_benchmark'] != null ? WateringGeneralBenchmark.fromJson(json['watering_general_benchmark']) : null;
-    watering = json['watering'];
-    isSaved = json['is_saved'];
-    otherName = json['other_name'];
-    id = json['id'];
-    isLiked = json['is_liked'];
-  }
+ factory PlantDetails.fromJson(dynamic json) =>PlantDetails(
+     date : json['date']as String?,
+     image : json['image'],
+     description : json['description'],
+ scientificName : json['scientific_name'],
+ type : json['type'],
+ cycle : json['cycle'],
+ pruningMonth :json['pruning_month'] != null ? json['pruning_month'].cast<String>() : [],
+  wateringGeneralBenchmark : json['watering_general_benchmark'] != null ? WateringGeneralBenchmark.fromJson(json['watering_general_benchmark']) : null,
+  watering : json['watering'],
+  isSaved :json['is_saved'],
+  otherName: json['other_name'],
+  id : json['id']as num?,
+  isLiked : json['is_liked'],
+ );
   String? date;
   String? image;
   String? description;
@@ -62,7 +64,7 @@ class PlantDetails {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['date'] = date;
-    map['image'] = image;
+    map['image'] = exImage;
     map['description'] = description;
     map['scientific_name'] = scientificName;
     map['type'] = type;

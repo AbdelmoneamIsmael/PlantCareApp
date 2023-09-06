@@ -1,11 +1,15 @@
 class ExploreEntity {
   final num? plantId;
-  final String? image;
+  final String? exImage;
   final String? plantDescription;
+  final bool? exIsLiked;
+  final bool? exIsSaved;
 
   ExploreEntity({
+    required this.exIsLiked,
+    required this.exIsSaved,
     required this.plantId,
-    required this.image,
+    required this.exImage,
     required this.plantDescription,
   });
 }
