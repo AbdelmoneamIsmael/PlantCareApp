@@ -9,6 +9,7 @@ import 'package:plant_care/core/strings_and_pathes/strings_and_pathes.dart';
 
 import '../../../../core/reuseable_widgets/my_buttom.dart';
 import '../../../../core/reuseable_widgets/text_form.dart';
+import '../../../home_screens/explore_screen/data_layer/remote_data_source/explore_all_remote_source.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -102,16 +103,11 @@ class LoginScreen extends StatelessWidget {
                             onTap: () {
                               if (formKey.currentState!.validate()) {
                                 print('here');
-                                FirebaseFirestore.instance
-                                    .collection('Plants')
-                                    .get()
-                                    .then(
-                                      (value) =>
-                                          value.docs.forEach((element) {
+                                 ExploreAllDataSourceImplement().fetchStanderPosts().then((value) {
+                                   print(value[0].plantDescription);
 
-                                        printLongString(element.data().toString());
-                                      }),
-                                    );
+                                      },
+                                 );
                                 // Get.to(const MainViewScreen(),
                                 //     transition: Transition.fade,
                                 //     duration: StringsAndPathes.time);
