@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -100,10 +101,20 @@ class LoginScreen extends StatelessWidget {
                             text: StringsAndPathes.loginConfirm,
                             onTap: () {
                               if (formKey.currentState!.validate()) {
+                                print('here');
+                                FirebaseFirestore.instance
+                                    .collection('Plants')
+                                    .get()
+                                    .then(
+                                      (value) =>
+                                          value.docs.forEach((element) {
 
-                                Get.to(const MainViewScreen(),
-                                    transition: Transition.fade,
-                                    duration: StringsAndPathes.time);
+                                        printLongString(element.data().toString());
+                                      }),
+                                    );
+                                // Get.to(const MainViewScreen(),
+                                //     transition: Transition.fade,
+                                //     duration: StringsAndPathes.time);
                               }
                             }),
                         const SizedBox(
@@ -167,5 +178,11 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+  void printLongString(String text) {
+    final RegExp pattern = RegExp('.{1,800}'); // 800 is the size of each chunk
+    pattern
+        .allMatches(text)
+        .forEach((RegExpMatch match) => print(match.group(0)));
   }
 }

@@ -7,6 +7,7 @@ environment:
   sdk: '>=3.0.6 <4.0.0'
 
 dependencies:
+  cloud_firestore: ^4.9.1
   getwidget: ^4.0.0
   cupertino_icons: ^1.0.2
   flutter_custom_clippers: ^2.1.0
