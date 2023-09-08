@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:plant_care/core/reuseable_widgets/fill_hive.dart';
 import 'package:plant_care/core/strings_and_pathes/strings_and_pathes.dart';
-import '../../domain/entity/explore_entity.dart';
-import '../models/Plant_details.dart';
+
+import '../../../domain/entity/explore_entity.dart';
+import '../../models/Plant_details.dart';
+
 
 abstract class ExploreAllDataSource {
   Future<List<ExploreEntity>> fetchYouMayLikeIt();
