@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 
 import 'package:plant_care/Features/home_screens/explore_screen/domain/entity/explore_entity.dart';
@@ -24,8 +25,8 @@ class ExploreSavedRepoImpl extends ExploreSavedRepo{
       }
       List<ExploreEntity> exploreDataRemote= await exploreSaveRemoteDataSourceImplement.fetchSavedPosts();
       return  right(exploreDataRemote);
-    } on Exception catch (e) {
-      return left(Failure());
+    } on FirebaseException catch (e) {
+      return left(Failure(firebaseException: e));
     }
   }
 }

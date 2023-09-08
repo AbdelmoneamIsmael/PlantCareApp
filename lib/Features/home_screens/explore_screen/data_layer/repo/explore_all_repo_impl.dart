@@ -1,4 +1,5 @@
- import 'package:dartz/dartz.dart';
+ import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dartz/dartz.dart';
 
 import 'package:plant_care/Features/home_screens/explore_screen/domain/entity/explore_entity.dart';
 
@@ -25,8 +26,9 @@ class ExploreAllRepoImpl extends ExploreAllRepo{
       }
       List<ExploreEntity> exploreDataRemote= await exploreAllRemoteDataSourceImplement.fetchStanderPosts();
       return  right(exploreDataRemote);
-    } on Exception catch (e) {
-      return left(Failure());
+    } on FirebaseException  catch (e) {
+
+      return left(Failure(firebaseException: e));
     }
 
   }
@@ -40,8 +42,8 @@ class ExploreAllRepoImpl extends ExploreAllRepo{
       }
       var exploreDataRemote= await exploreAllRemoteDataSourceImplement.fetchYouMayLikeIt();
       return  right(exploreDataRemote);
-    } on Exception catch (e) {
-      return left(Failure());
+    } on FirebaseException catch (e) {
+      return left(Failure(firebaseException: e));
     }
   }
 }
