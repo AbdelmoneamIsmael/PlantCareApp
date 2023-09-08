@@ -61,4 +61,9 @@ class StringsAndPathes {
   ];
   //constant
   static const Duration time = Duration(seconds: 1);
+  static const String kFetchYouMayLike='kFetchYouMayLike';
+  static const String kFetchNewPosts='kFetchNewPosts';
+  static const String kFetchPopularPosts='kFetchPopularPosts';
+  static const String kFetchSavedPosts='kFetchSavedPosts';
+  static const String kFetchStanderPosts='kFetchStanderPosts';
 }
