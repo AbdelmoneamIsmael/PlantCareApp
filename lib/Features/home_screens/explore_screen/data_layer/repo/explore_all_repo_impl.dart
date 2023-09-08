@@ -23,7 +23,7 @@ class ExploreAllRepoImpl extends ExploreAllRepo{
       if(exploreDataLocal.isNotEmpty){
         return right(exploreDataLocal);
       }
-       var exploreDataRemote= await exploreAllRemoteDataSourceImplement.fetchStanderPosts();
+      List<ExploreEntity> exploreDataRemote= await exploreAllRemoteDataSourceImplement.fetchStanderPosts();
       return  right(exploreDataRemote);
     } on Exception catch (e) {
       return left(Failure());

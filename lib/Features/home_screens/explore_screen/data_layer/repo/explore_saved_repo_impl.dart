@@ -22,7 +22,7 @@ class ExploreSavedRepoImpl extends ExploreSavedRepo{
       if(exploreDataLocal.isNotEmpty){
         return right(exploreDataLocal);
       }
-      var exploreDataRemote= await exploreSaveRemoteDataSourceImplement.fetchSavedPosts();
+      List<ExploreEntity> exploreDataRemote= await exploreSaveRemoteDataSourceImplement.fetchSavedPosts();
       return  right(exploreDataRemote);
     } on Exception catch (e) {
       return left(Failure());

@@ -22,7 +22,7 @@ class ExplorePopularRepoImpl extends ExplorePopularRepo{
       if(exploreDataLocal.isNotEmpty){
         return right(exploreDataLocal);
       }
-      var exploreDataRemote= await explorePopularRemoteDataSourceImplement.fetchPopularPosts();
+      List<ExploreEntity> exploreDataRemote= await explorePopularRemoteDataSourceImplement.fetchPopularPosts();
       return  right(exploreDataRemote);
     } on Exception catch (e) {
       return left(Failure());
