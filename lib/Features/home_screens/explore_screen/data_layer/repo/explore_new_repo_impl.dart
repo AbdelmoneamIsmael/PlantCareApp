@@ -25,8 +25,8 @@ class ExploreNewRepoImpl extends ExploreNewRepo{
       }
       List<ExploreEntity> exploreDataRemote= await exploreNewRemoteDataSourceImplement.fetchNewPosts();
       return  right(exploreDataRemote);
-    } on FirebaseException catch (e) {
-      return left(Failure(e.message.toString()));
+    } catch (e) {
+      return left(Failure(e.toString()));
     }
   }
 }

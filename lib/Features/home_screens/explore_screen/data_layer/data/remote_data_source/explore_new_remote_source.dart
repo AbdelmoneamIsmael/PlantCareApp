@@ -24,6 +24,7 @@ class ExploreNewDataSourceImplement extends ExploreNewDataSource{
           }),
 
     );
+    print(exploreAll.length);
     fillHive(StringsAndPathes.kFetchNewPosts, exploreAll);
 
 
