@@ -103,15 +103,15 @@ class LoginScreen extends StatelessWidget {
                             text: StringsAndPathes.loginConfirm,
                             onTap: () {
                               if (formKey.currentState!.validate()) {
-                                print('here');
-                                 ExploreAllDataSourceImplement().fetchStanderPosts().then((value) {
-                                   print(value[0].plantDescription);
-
-                                      },
-                                 );
-                                // Get.to(const MainViewScreen(),
-                                //     transition: Transition.fade,
-                                //     duration: StringsAndPathes.time);
+                                // print('here');
+                                //  ExploreAllDataSourceImplement().fetchStanderPosts().then((value) {
+                                //    print(value[0].plantDescription);
+                                //
+                                //       },
+                                //  );
+                                 Get.to(const MainViewScreen(),
+                                    transition: Transition.fade,
+                                     duration: StringsAndPathes.time);
                               }
                             }),
                         const SizedBox(

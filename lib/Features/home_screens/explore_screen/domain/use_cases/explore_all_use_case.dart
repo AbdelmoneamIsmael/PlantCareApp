@@ -16,6 +16,8 @@ class ExploreAllYMLUseCase extends UseCase<List<ExploreEntity>,NoParam>{
   }
 
 }
+
+
 class ExploreAllStanderUseCase extends UseCase<List<ExploreEntity>,NoParam>{
   final ExploreAllRepo exploreAllRepo;
 
