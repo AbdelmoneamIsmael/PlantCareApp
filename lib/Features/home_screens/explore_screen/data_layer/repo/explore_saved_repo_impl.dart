@@ -26,7 +26,7 @@ class ExploreSavedRepoImpl extends ExploreSavedRepo{
       List<ExploreEntity> exploreDataRemote= await exploreSaveRemoteDataSourceImplement.fetchSavedPosts();
       return  right(exploreDataRemote);
     } on FirebaseException catch (e) {
-      return left(Failure(firebaseException: e));
+      return left(Failure(e.message.toString()));
     }
   }
 }

@@ -16,9 +16,9 @@ class FetchSavedSuccess extends FetchSavedState {
 
 }
 class FetchSavedError extends FetchSavedState {
-  final FirebaseException firebaseException;
+  final String e;
 
-  FetchSavedError(this.firebaseException);
+  FetchSavedError(this.e);
 
 
 

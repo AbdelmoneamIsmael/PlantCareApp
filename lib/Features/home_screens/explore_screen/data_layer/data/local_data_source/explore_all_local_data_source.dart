@@ -19,7 +19,7 @@ class ExploreAllLocalDataSourceImpl extends ExploreAllLocalDataSource{
 
   @override
   List<ExploreEntity> fetchYouMayLikeIt() {
-    var box= Hive.box<ExploreEntity>(StringsAndPathes.kFetchYouMayLike);
+    Box<ExploreEntity> box= Hive.box<ExploreEntity>(StringsAndPathes.kFetchYouMayLike);
     return box.values.toList() ;
   }
 

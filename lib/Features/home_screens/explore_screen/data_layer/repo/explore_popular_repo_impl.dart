@@ -26,7 +26,7 @@ class ExplorePopularRepoImpl extends ExplorePopularRepo{
       List<ExploreEntity> exploreDataRemote= await explorePopularRemoteDataSourceImplement.fetchPopularPosts();
       return  right(exploreDataRemote);
     } on FirebaseException catch (e) {
-      return left(Failure(firebaseException: e));
+      return left(Failure(e.message.toString()));
     }
   }
 

@@ -16,7 +16,7 @@ class FetchAllYouMayLikeCubit extends Cubit<FetchAllState> {
     var result = await exploreAllYMLUseCase.call();
     result.fold(
       (failure) {
-        emit(FetchAllError(failure.firebaseException));
+        emit(FetchAllError(failure.message));
       }
       ,
       (posts) {
@@ -36,7 +36,7 @@ class FetchAllStanderCubit extends Cubit<FetchAllState> {
     var result = await exploreAllStanderUseCase.call();
     result.fold(
           (failure) {
-        emit(FetchAllError(failure.firebaseException));
+        emit(FetchAllError(failure.message));
       }
       ,
           (posts) {

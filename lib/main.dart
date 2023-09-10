@@ -20,11 +20,11 @@ void main() async {
  await Hive.initFlutter();
   Bloc.observer=BlocOpserve();
  Hive.registerAdapter(ExploreEntityAdapter());
- await Hive.openBox(StringsAndPathes.kFetchYouMayLike);
-  await Hive.openBox(StringsAndPathes.kFetchStanderPosts);
-  await Hive.openBox(StringsAndPathes.kFetchSavedPosts);
-  await Hive.openBox(StringsAndPathes.kFetchPopularPosts);
-  await Hive.openBox(StringsAndPathes.kFetchNewPosts);
+ await Hive.openBox<ExploreEntity>(StringsAndPathes.kFetchYouMayLike);
+  await Hive.openBox<ExploreEntity>(StringsAndPathes.kFetchStanderPosts);
+  await Hive.openBox<ExploreEntity>(StringsAndPathes.kFetchSavedPosts);
+  await Hive.openBox<ExploreEntity>(StringsAndPathes.kFetchPopularPosts);
+  await Hive.openBox<ExploreEntity>(StringsAndPathes.kFetchNewPosts);
 
   runApp(const MyApp());
 }

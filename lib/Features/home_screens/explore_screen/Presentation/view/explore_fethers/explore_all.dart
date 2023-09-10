@@ -1,9 +1,11 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:plant_care/Features/home_screens/explore_screen/Presentation/widgets/card_on.dart';
 import 'package:plant_care/core/colors/app_colors.dart';
 
 import '../../../../../../core/strings_and_pathes/strings_and_pathes.dart';
+import '../../manger/fetch_all_cubit/fetch_all__cubit.dart';
 import '../../widgets/card_plant.dart';
 
 class ExploreAll extends StatefulWidget {
@@ -42,19 +44,29 @@ class _ExploreAllState extends State<ExploreAll> {
     );
   }
 
-  Widget pageViewItems() => Padding(
+  Widget pageViewItems() {
+    return BlocConsumer<FetchAllYouMayLikeCubit, FetchAllState>(
+  listener: (context, state) {
+    // TODO: implement listener
+  },
+  builder: (context, state) {
+    if(state is FetchAllLoading) {
+      return const Center(child: CircularProgressIndicator(color: Colors.green,));
+    }if(state is FetchAllSuccess) {
+
+      return Padding(
         padding: const EdgeInsets.symmetric(vertical: 14.0),
         child: Column(
           children: [
             SizedBox(
               height: 280,
               child: PageView.builder(
-                itemBuilder: (context, index) => const Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: PlantCard(),
+                itemBuilder: (context, index) =>  Padding(
+                  padding:const EdgeInsets.all(10.0),
+                  child: PlantCard(exploreEntity: state.exploreEntity[index]),
                 ),
                 scrollDirection: Axis.horizontal,
-                itemCount: 5,
+                itemCount:  state.exploreEntity.length,
                 onPageChanged: (value) {
                   setState(() {
                     currentPageValue = value;
@@ -79,6 +91,12 @@ class _ExploreAllState extends State<ExploreAll> {
           ],
         ),
       );
+    }else{
+      return state is FetchAllError ? Text(state.e):Text('ddd');
+    }
+  },
+);
+  }
   Widget plantCareTextRow() => Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

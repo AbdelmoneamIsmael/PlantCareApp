@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'package:plant_care/Features/home_screens/explore_screen/domain/entity/explore_entity.dart';
 
 import 'package:plant_care/Features/home_screens/main_view/presentation/views/main_view.dart';
 
@@ -12,6 +13,7 @@ import 'package:plant_care/core/utilies/app_routers.dart';
 import '../../../../core/reuseable_widgets/my_buttom.dart';
 import '../../../../core/reuseable_widgets/text_form.dart';
 import '../../../home_screens/explore_screen/data_layer/data/remote_data_source/explore_all_remote_source.dart';
+import '../../../home_screens/explore_screen/data_layer/models/Plant_details.dart';
 
 
 class LoginScreen extends StatelessWidget {
@@ -105,16 +107,16 @@ class LoginScreen extends StatelessWidget {
                             text: StringsAndPathes.loginConfirm,
                             onTap: () {
                               if (formKey.currentState!.validate()) {
-                                // print('here');
-                                //  ExploreAllDataSourceImplement().fetchStanderPosts().then((value) {
-                                //    print(value[0].plantDescription);
-                                //
-                                //       },
-                                //  );
+                                // List<ExploreEntity> exploreAll=[];
+                                //  FirebaseFirestore.instance.collection('Plants').get().then(
+                                //       (value) => value.docs.forEach((element) {
+                                //     exploreAll.add(PlantDetails.fromJson(element.data()));
+                                //     print(exploreAll[0].plantDescription);
+                                //     print('objecttttttttttttttttttttttttttttttttttttttttttttttttttttttt');
+                                //   }),
+                                // );
                                 GoRouter.of(context).push(AppRouters.kHomePage);
-                                //  Get.to(const MainViewScreen(),
-                                //     transition: Transition.fade,
-                                //      duration: StringsAndPathes.time);
+
                               }
                             }),
                         const SizedBox(

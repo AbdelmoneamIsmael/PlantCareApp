@@ -14,7 +14,7 @@ class FetchPopularCubit extends Cubit<FetchPopularState> {
   Future<void> fetchPopularPosts() async {
     emit(FetchPopularLoading());
     var result = await explorePopularUseCase.call();
-    result.fold((fail) => emit(FetchPopularError(fail.firebaseException)),
+    result.fold((fail) => emit(FetchPopularError(fail.message)),
         (posts) => emit(FetchPopularSuccess(posts)));
   }
 }

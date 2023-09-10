@@ -12,8 +12,8 @@ class FetchNewSuccess extends FetchNewState {
   FetchNewSuccess(this.exploreEntity);
 }
 class FetchNewError extends FetchNewState {
-  final FirebaseException firebaseException;
+  final String e;
 
-  FetchNewError(this.firebaseException);
+  FetchNewError(this.e);
 
 }

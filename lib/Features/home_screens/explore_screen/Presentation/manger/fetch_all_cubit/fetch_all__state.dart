@@ -11,7 +11,7 @@ class FetchAllSuccess extends FetchAllState {
   FetchAllSuccess(this.exploreEntity);
 }
 class FetchAllError extends FetchAllState {
-  final FirebaseException e;
+  final String e;
 
   FetchAllError(this.e);
 }

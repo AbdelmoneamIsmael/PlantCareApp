@@ -15,7 +15,7 @@ class FetchNewCubit extends Cubit<FetchNewState> {
     emit(FetchNewLoading());
     var result = await exploreNewUseCase.call();
     result.fold(
-      (failure) => emit(FetchNewError(failure.firebaseException)),
+      (failure) => emit(FetchNewError(failure.message)),
       (posts) => emit(FetchNewSuccess(posts)),
     );
   }

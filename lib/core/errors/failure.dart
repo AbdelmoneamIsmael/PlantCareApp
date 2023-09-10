@@ -1,10 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
  class Failure {
-  final  FirebaseException firebaseException;
+  final String message;
 
-  Failure({required this.firebaseException});
- message(FirebaseException e){
-   return "Failed with error '${e.code}': ${e.message}";
- }
+  Failure(this.message);
 }

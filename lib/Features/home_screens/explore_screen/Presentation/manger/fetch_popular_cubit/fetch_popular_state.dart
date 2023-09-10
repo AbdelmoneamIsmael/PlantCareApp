@@ -14,9 +14,9 @@ class FetchPopularSuccess extends FetchPopularState {
 
 }
 class FetchPopularError extends FetchPopularState {
-  final FirebaseException firebaseException;
+  final String e;
 
-  FetchPopularError(this.firebaseException);
+  FetchPopularError(this.e);
 
 
 

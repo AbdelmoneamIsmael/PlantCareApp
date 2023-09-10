@@ -26,9 +26,9 @@ class ExploreAllRepoImpl extends ExploreAllRepo{
       }
       List<ExploreEntity> exploreDataRemote= await exploreAllRemoteDataSourceImplement.fetchStanderPosts();
       return  right(exploreDataRemote);
-    } on FirebaseException  catch (e) {
-
-      return left(Failure(firebaseException: e));
+    } catch (e) {
+      print(e.toString());
+      return left(Failure(e.toString()));
     }
 
   }
@@ -36,14 +36,20 @@ class ExploreAllRepoImpl extends ExploreAllRepo{
   @override
   Future<Either<Failure, List<ExploreEntity>>> fetchYouMayLikeIt() async{
     try {
-      List<ExploreEntity> exploreDataLocal=exploreAllLocalDataSourceImpl.fetchYouMayLikeIt();
-      if(exploreDataLocal.isNotEmpty){
-        return right(exploreDataLocal);
+      print('stip1');
+      List<ExploreEntity> data=exploreAllLocalDataSourceImpl.fetchYouMayLikeIt();
+      print('stip2');
+      if(data.isNotEmpty){
+        print('stip4');
+
+        return right(data);
       }
-      var exploreDataRemote= await exploreAllRemoteDataSourceImplement.fetchYouMayLikeIt();
-      return  right(exploreDataRemote);
-    } on FirebaseException catch (e) {
-      return left(Failure(firebaseException: e));
+      print('stip3');
+      data= await exploreAllRemoteDataSourceImplement.fetchYouMayLikeIt();
+      return  right(data);
+    }  catch (e) {
+      print(e.toString());
+      return left(Failure(e.toString()));
     }
   }
 }

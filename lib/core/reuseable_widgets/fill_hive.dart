@@ -3,7 +3,6 @@ import 'package:plant_care/Features/home_screens/explore_screen/domain/entity/ex
 
 
  void fillHive(String boxName,List<ExploreEntity> list){
-  var box=Hive.box(boxName);
-  box.addAll(list);
-
+  // var box=Hive.box<ExploreEntity>(boxName);
+  // box.addAll(list);
 }

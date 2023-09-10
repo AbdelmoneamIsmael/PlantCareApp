@@ -29,7 +29,6 @@ class ExploreAllDataSourceImplement extends ExploreAllDataSource {
   @override
   Future<List<ExploreEntity>> fetchYouMayLikeIt() async {
     List<ExploreEntity> exploreAll = [];
-
     await FirebaseFirestore.instance.collection('Plants').get().then(
           (value) => value.docs.forEach((element) {
             exploreAll.add(PlantDetails.fromJson(element.data()));
