@@ -59,7 +59,7 @@ class ExploreTap extends StatelessWidget {
       alignment: Alignment(boxX[currentPage], boxY),
       child: Container(
         height: 60,
-        width: widths[currentTAp],
+        width: widths[currentPage],
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: AppColors.appBarColor,

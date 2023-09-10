@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
+
 import 'package:plant_care/core/strings_and_pathes/strings_and_pathes.dart';
+import 'package:plant_care/core/utilies/app_routers.dart';
 
 import '../../../login_screen/presentation/views/login.dart';
 
@@ -20,15 +22,25 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     initialAnimation();
     super.initState();
-    Future.delayed(const Duration(seconds: 3),() {
-      Get.to(const LoginScreen(),transition: Transition.rightToLeft,duration: const Duration(seconds: 1));
-    },);
+    Future.delayed(
+      const Duration(seconds: 3),
+      () {
+        GoRouter.of(context).push(AppRouters.kLoginScreen);
+        // Get.to(
+        //   const LoginScreen(),
+        //   transition: Transition.rightToLeft,
+        //   duration: const Duration(seconds: 1),
+        // );
+      },
+    );
   }
+
   @override
   void dispose() {
     animationController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen>
     );
   }
 
-  initialAnimation(){
+  initialAnimation() {
     animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),

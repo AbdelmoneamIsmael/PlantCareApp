@@ -1,11 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
+
 import 'package:plant_care/Features/home_screens/main_view/presentation/views/main_view.dart';
 
 import 'package:plant_care/core/colors/app_colors.dart';
 import 'package:plant_care/core/strings_and_pathes/strings_and_pathes.dart';
+import 'package:plant_care/core/utilies/app_routers.dart';
 
 import '../../../../core/reuseable_widgets/my_buttom.dart';
 import '../../../../core/reuseable_widgets/text_form.dart';
@@ -109,9 +111,10 @@ class LoginScreen extends StatelessWidget {
                                 //
                                 //       },
                                 //  );
-                                 Get.to(const MainViewScreen(),
-                                    transition: Transition.fade,
-                                     duration: StringsAndPathes.time);
+                                GoRouter.of(context).push(AppRouters.kHomePage);
+                                //  Get.to(const MainViewScreen(),
+                                //     transition: Transition.fade,
+                                //      duration: StringsAndPathes.time);
                               }
                             }),
                         const SizedBox(
