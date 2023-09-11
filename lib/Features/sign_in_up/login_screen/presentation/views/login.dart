@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// ignore: depend_on_referenced_packages
 import 'package:go_router/go_router.dart';
 
 import 'package:plant_care/core/colors/app_colors.dart';
 import 'package:plant_care/core/strings_and_pathes/strings_and_pathes.dart';
 import 'package:plant_care/core/utilies/app_routers.dart';
 
-import '../../../../core/reuseable_widgets/my_buttom.dart';
-import '../../../../core/reuseable_widgets/text_form.dart';
+import '../../../../../core/reuseable_widgets/my_buttom.dart';
+import '../../../../../core/reuseable_widgets/text_form.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -57,6 +58,7 @@ class LoginScreen extends StatelessWidget {
                             if (value!.isEmpty) {
                               return StringsAndPathes.emailValidate;
                             }
+                            return null;
                           },
                           hintText: 'Enter Email',
                           textEditingController: tEmail,
@@ -69,6 +71,7 @@ class LoginScreen extends StatelessWidget {
                             if (value!.isEmpty) {
                               return StringsAndPathes.passwordValidate;
                             }
+                            return null;
                           },
                           hintText: 'Enter Password',
                           textEditingController: tPassword,
@@ -143,15 +146,21 @@ class LoginScreen extends StatelessWidget {
                           height: 40,
                         ),
                         Center(
-                          child: Text(
-                            StringsAndPathes.signupHint,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodySmall!
-                                .copyWith(
-                                    color: AppColors.backgroundColor,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.normal),
+                          child: GestureDetector(
+                            onTap: () {
+                              GoRouter.of(context)
+                                  .push(AppRouters.kSignUpScreen);
+                            },
+                            child: Text(
+                              StringsAndPathes.signupHint,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(
+                                      color: AppColors.backgroundColor,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.normal),
+                            ),
                           ),
                         ),
                       ],

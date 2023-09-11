@@ -24,11 +24,6 @@ class _SplashScreenState extends State<SplashScreen>
       const Duration(seconds: 3),
       () {
         GoRouter.of(context).push(AppRouters.kLoginScreen);
-        // Get.to(
-        //   const LoginScreen(),
-        //   transition: Transition.rightToLeft,
-        //   duration: const Duration(seconds: 1),
-        // );
       },
     );
   }

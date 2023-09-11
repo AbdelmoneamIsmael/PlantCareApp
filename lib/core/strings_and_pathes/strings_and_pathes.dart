@@ -13,11 +13,14 @@ class StringsAndPathes {
   static const String addNewPlant = 'assets/images/add_new.png';
   static const String cardImage = 'assets/images/image_card.jpg';
   static const String profileImage = 'assets/images/profile_image.jpg';
+  static const String signUpImage = 'assets/images/sign_up.png';
 
   //strings
   static const String splashText = 'Plant Pal';
   static const String loginPhrase = 'Let\'s grow together';
   static const String forgetPass = 'Forget your Password ?';
+  static const String signUpHint = 'Let\'s Join Our Community';
+  static const String alreadyHaveAccount = 'Already have an account? Login now';
   static const String loginConfirm = 'Confirm';
   static const String emailValidate = 'Email address mustn\'t be empty';
   static const String passwordValidate = 'Email address mustn\'t be empty';
@@ -61,9 +64,9 @@ class StringsAndPathes {
   ];
   //constant
   static const Duration time = Duration(seconds: 1);
-  static const String kFetchYouMayLike='kFetchYouMayLike';
-  static const String kFetchNewPosts='kFetchNewPosts';
-  static const String kFetchPopularPosts='kFetchPopularPosts';
-  static const String kFetchSavedPosts='kFetchSavedPosts';
-  static const String kFetchStanderPosts='kFetchStanderPosts';
+  static const String kFetchYouMayLike = 'kFetchYouMayLike';
+  static const String kFetchNewPosts = 'kFetchNewPosts';
+  static const String kFetchPopularPosts = 'kFetchPopularPosts';
+  static const String kFetchSavedPosts = 'kFetchSavedPosts';
+  static const String kFetchStanderPosts = 'kFetchStanderPosts';
 }
