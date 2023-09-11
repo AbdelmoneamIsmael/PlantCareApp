@@ -4,8 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:plant_care/core/strings_and_pathes/strings_and_pathes.dart';
 import 'package:plant_care/core/utilies/app_routers.dart';
 
-import '../../../login_screen/presentation/views/login.dart';
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 

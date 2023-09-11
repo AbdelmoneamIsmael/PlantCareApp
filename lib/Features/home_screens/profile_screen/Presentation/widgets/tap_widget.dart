@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-
-import 'package:plant_care/core/strings_and_pathes/strings_and_pathes.dart';
 import 'package:plant_care/core/utilies/app_routers.dart';
-
-import '../view/about.dart';
-import '../view/personal_information.dart';
 
 class TapWidget extends StatelessWidget {
   final Widget widget;
@@ -23,7 +18,9 @@ class TapWidget extends StatelessWidget {
         switch (index) {
           case 0:
             {
-              GoRouter.of(context).push(AppRouters.kPersonalInformation,  );
+              GoRouter.of(context).push(
+                AppRouters.kPersonalInformation,
+              );
               // Get.to(
               //   const PersonalInformation(),
               //   transition: Transition.rightToLeft,

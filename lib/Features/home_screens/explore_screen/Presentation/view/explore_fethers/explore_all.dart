@@ -46,57 +46,62 @@ class _ExploreAllState extends State<ExploreAll> {
 
   Widget pageViewItems() {
     return BlocConsumer<FetchAllYouMayLikeCubit, FetchAllState>(
-  listener: (context, state) {
-    // TODO: implement listener
-  },
-  builder: (context, state) {
-    if(state is FetchAllLoading) {
-      return const Center(child: CircularProgressIndicator(color: Colors.green,));
-    }if(state is FetchAllSuccess) {
-
-      return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 14.0),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 280,
-              child: PageView.builder(
-                itemBuilder: (context, index) =>  Padding(
-                  padding:const EdgeInsets.all(10.0),
-                  child: PlantCard(exploreEntity: state.exploreEntity[index]),
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        if (state is FetchAllLoading) {
+          return const Center(
+              child: CircularProgressIndicator(
+            color: Colors.green,
+          ));
+        }
+        if (state is FetchAllSuccess) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 14.0),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 280,
+                  child: PageView.builder(
+                    itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child:
+                          PlantCard(exploreEntity: state.exploreEntity[index]),
+                    ),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: state.exploreEntity.length,
+                    onPageChanged: (value) {
+                      setState(() {
+                        currentPageValue = value;
+                      });
+                    },
+                    controller: pageViewController,
+                  ),
                 ),
-                scrollDirection: Axis.horizontal,
-                itemCount:  state.exploreEntity.length,
-                onPageChanged: (value) {
-                  setState(() {
-                    currentPageValue = value;
-                  });
-                },
-                controller: pageViewController,
-              ),
-            ),
-            Center(
-              child: DotsIndicator(
-                dotsCount: 5,
-                position: currentPageValue,
-                decorator: DotsDecorator(
-                  size: const Size.square(9.0),
-                  activeSize: const Size(18.0, 9.0),
-                  activeShape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0)),
-                  activeColor: AppColors.appBarColor,
+                Center(
+                  child: DotsIndicator(
+                    dotsCount: 5,
+                    position: currentPageValue,
+                    decorator: DotsDecorator(
+                      size: const Size.square(9.0),
+                      activeSize: const Size(18.0, 9.0),
+                      activeShape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0)),
+                      activeColor: AppColors.appBarColor,
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
-          ],
-        ),
-      );
-    }else{
-      return state is FetchAllError ? Text(state.e):Text('ddd');
-    }
-  },
-);
+          );
+        } else {
+          return state is FetchAllError ? Text(state.e) : const Text('ddd');
+        }
+      },
+    );
   }
+
   Widget plantCareTextRow() => Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

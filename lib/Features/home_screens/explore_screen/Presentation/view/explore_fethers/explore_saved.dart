@@ -14,7 +14,6 @@ class ExploreSaved extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-
         children: [
           Text(
             StringsAndPathes.savedPlant,
@@ -25,34 +24,37 @@ class ExploreSaved extends StatelessWidget {
       ),
     );
   }
- Widget savedPlantCards() {
-   return BlocConsumer<FetchSavedCubit, FetchSavedState>(
-  listener: (context, state) {
-    // TODO: implement listener
-  },
-  builder: (context, state) {
-    if(state is FetchSavedLoading) {
-      return const Center(child: CircularProgressIndicator(color: Colors.green,));
-    }if(state is FetchSavedSuccess) {
 
-      return Padding(
-        padding: const EdgeInsets.only(top:  15.0),
-        child: ListView.separated(
-          shrinkWrap: true,
-          physics:const  NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) =>  PlantCard(exploreEntity: state.exploreEntity[index]),
-          separatorBuilder: (context, index) => const SizedBox(height: 20,),
-          itemCount: state.exploreEntity.length,
-        ),
-      );
-    }else{
-      return state is FetchSavedError ? Text(state.e):Text('ddd');
-    }
-
-
-  },
-);
- }
+  Widget savedPlantCards() {
+    return BlocConsumer<FetchSavedCubit, FetchSavedState>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        if (state is FetchSavedLoading) {
+          return const Center(
+              child: CircularProgressIndicator(
+            color: Colors.green,
+          ));
+        }
+        if (state is FetchSavedSuccess) {
+          return Padding(
+            padding: const EdgeInsets.only(top: 15.0),
+            child: ListView.separated(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) =>
+                  PlantCard(exploreEntity: state.exploreEntity[index]),
+              separatorBuilder: (context, index) => const SizedBox(
+                height: 20,
+              ),
+              itemCount: state.exploreEntity.length,
+            ),
+          );
+        } else {
+          return state is FetchSavedError ? Text(state.e) : const Text('ddd');
+        }
+      },
+    );
+  }
 }
-
-

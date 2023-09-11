@@ -1,13 +1,13 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:plant_care/Features/home_screens/explore_screen/Presentation/manger/main_explore_cubit/main_explore_cubit.dart';
-import 'package:plant_care/Features/home_screens/explore_screen/Presentation/widgets/shared_variable.dart';
 import '../../../../../core/colors/app_colors.dart';
 import '../../../../../core/strings_and_pathes/strings_and_pathes.dart';
 
 class ExploreTap extends StatelessWidget {
-  
-
   List boxX = [
     -1.0,
     -.47,
@@ -21,36 +21,34 @@ class ExploreTap extends StatelessWidget {
 
   double boxY = 0;
 
-   ExploreTap({super.key});
+  ExploreTap({super.key});
 
   @override
   Widget build(BuildContext context) {
     late MainExploreCubit cubit;
     return BlocConsumer<MainExploreCubit, MainExploreState>(
-  listener: (context, state) {
-    // TODO: implement listener
-  },
-  builder: (context, state) {
-    cubit=MainExploreCubit.get(context);
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-      child: Container(
-        height: 40,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Stack(
-          children: [
-            selectAnimation(cubit.currentScreen),
-            taps(cubit),
-          ],
-        ),
-      ),
+      listener: (context, state) {},
+      builder: (context, state) {
+        cubit = MainExploreCubit.get(context);
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          child: Container(
+            height: 40,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Stack(
+              children: [
+                selectAnimation(cubit.currentScreen),
+                taps(cubit),
+              ],
+            ),
+          ),
+        );
+      },
     );
-  },
-);
   }
 
   Widget selectAnimation(int currentPage) {
@@ -75,7 +73,7 @@ class ExploreTap extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) => GestureDetector(
               onTap: () {
-               cubit.changeTapAndScreenValue(index);
+                cubit.changeTapAndScreenValue(index);
               },
               child: Text(
                 StringsAndPathes.tapExploreLabel[index],
